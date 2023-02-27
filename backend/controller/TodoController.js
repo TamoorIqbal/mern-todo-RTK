@@ -1,5 +1,5 @@
-const Todo = require("../model/TodoModel");
-const CatchAsyncError = require("../middleware/CatchAsyncError");
+const Todo = require("../model/TodoModel.js");
+const CatchAsyncError = require("../middleware/CatchAsyncError.js");
 //Create Todo
 exports.createTodo = CatchAsyncError(async (req, res, next) => {
   try {

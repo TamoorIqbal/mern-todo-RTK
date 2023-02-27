@@ -5,7 +5,7 @@ const {
   updateTodo,
   deleteTodo,
   getAllTodos,
-} = require("../controller/todoController");
+} = require("../controller/todoController.js");
 
 //all todo
 router.route("/todos").get(getAllTodos);

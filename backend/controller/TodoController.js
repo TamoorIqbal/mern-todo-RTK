@@ -1,7 +1,7 @@
 const Todo = require("../model/TodoModel");
-
+const CatchAsyncError = require("../middleware/CatchAsyncError");
 //Create Todo
-exports.createTodo = async (req, res, next) => {
+exports.createTodo = CatchAsyncError(async (req, res, next) => {
   try {
     const todo = await Todo.create(req.body);
     res.status(201).json({
@@ -16,10 +16,10 @@ exports.createTodo = async (req, res, next) => {
       error: error.message,
     });
   }
-};
+});
 
 //Delete Todo
-exports.deleteTodo = async (req, res, next) => {
+exports.deleteTodo = CatchAsyncError(async (req, res, next) => {
   try {
     const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
     if (!deletedTodo) {
@@ -40,10 +40,10 @@ exports.deleteTodo = async (req, res, next) => {
       error: error.message,
     });
   }
-};
+});
 
 //Update Todo
-exports.updateTodo = async (req, res, next) => {
+exports.updateTodo = CatchAsyncError(async (req, res, next) => {
   try {
     const updatedTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -67,10 +67,10 @@ exports.updateTodo = async (req, res, next) => {
       error: error.message,
     });
   }
-};
+});
 
 //Get All Todo
-exports.getAllTodos = async (req, res, next) => {
+exports.getAllTodos = CatchAsyncError(async (req, res, next) => {
   try {
     const todos = await Todo.find();
     return res.status(200).json({
@@ -85,4 +85,4 @@ exports.getAllTodos = async (req, res, next) => {
       error: error.message,
     });
   }
-};
+});

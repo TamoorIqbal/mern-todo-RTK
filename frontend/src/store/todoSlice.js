@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const todoApi = createApi({
   reducerPath: "todoApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4000/api/v1/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://mern-todo-rtk.vercel.app/" }),
   endpoints: (builder) => ({
     getAllTodos: builder.query({
       query: () => {

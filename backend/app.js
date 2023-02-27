@@ -10,9 +10,13 @@ app.use(cors());
 const todo = require("./route/TodoRoute");
 app.use("/api/v1", todo);
 
-
+app.use(express.static('public'))
+//index.js
+app.get('/', (req, res) => {
+    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+  })
+  
 app.use(express.static(path.resolve("./frontend/build")));
-
 app.get("*", (req, res) => {
   res.sendFile(path.resolve("./frontend/build/index.html"));
 });

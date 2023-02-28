@@ -23,15 +23,17 @@ app.use("/api/v1", todo);
 //   })
 
 // }
-app.get("/", (req, res) => {
-    console.log(__dirname)
-  });
+
 //   app.get("/", (req, res) => {
 //     res.sendFile(__dirname + "/index.html");
 //   });
 // app.get("/", (req, res) => {
 //   res.send("Hello world!");
 // });
+
+app.get("/", (req, res) => {
+      res.send(__dirname);
+    });
 
 
 
